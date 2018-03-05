@@ -1,1 +1,1 @@
-pbot:python bin/run.py
+pbot:python run.py
