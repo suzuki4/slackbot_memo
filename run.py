@@ -41,6 +41,9 @@ class ExMessageDispatcher(MessageDispatcher):
         if re.match(r"^Reminder: .*\.$", msg["text"]):
             msg["text"] = msg["text"][10:len(msg["text"])-1]
             
+        if re.match(r"^リマインダー : .*\.$", msg["text"]):
+            msg["text"] = msg["text"][9:len(msg["text"])-1]        
+            
         msg_respond_to = self.filter_text(msg)
         if msg_respond_to:
             self._pool.add_task(('respond_to', msg_respond_to))
